@@ -1,0 +1,88 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #ffffffdd;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.expense-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.expense-form button:hover {
+  background-color: #357abd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.edit-btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: #ff9800;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #e67e22;
+}
+
+.summary-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.summary-card li {
+  margin-bottom: 5px;
+}
