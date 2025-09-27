@@ -1,70 +1,180 @@
-# Getting Started with Create React App
+# Expense Tracker with Category Insights
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This is a **full-stack Expense Tracker** project where users can log daily expenses, categorize them, and view insights into their spending. The frontend is built with **React**, while the backend is powered by **FastAPI**.
 
-In the project directory, you can run:
+Users can:
 
-### `npm start`
+* Add a new expense with amount, category, and date.
+* View all expenses for a particular date.
+* View a summary of spending, including total spend and category-wise breakdown.
+* Update an existing expense.
+* (Optional) Delete expenses and view charts for insights.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## File Structure (Frontend)
 
-### `npm test`
+Your current frontend project structure looks like this:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+public/
+├── favicon.ico
+├── index.html
+├── logo192.png
+├── logo512.png
+├── manifest.json
+├── robots.txt
 
-### `npm run build`
+src/
+├── App.css
+├── App.js
+├── App.test.js
+├── index.css
+├── index.js
+├── logo.svg
+├── reportWebVitals.js
+├── setupTests.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+.gitignore
+README.md
+package-lock.json
+package.json
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Key Files
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **App.js** → Main React component that ties everything together.
+* **index.js** → Entry point for React app.
+* **App.css / index.css** → Stylesheets.
+* **public/index.html** → Base HTML file.
+* **reportWebVitals.js & setupTests.js** → Performance monitoring & testing setup.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✅ Add expense (amount, category, date)
+✅ Predefined & custom categories
+✅ View expenses by date
+✅ Summary with total + category breakdown
+✅ Update an expense
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Optional enhancements:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Filter by date range (month/custom)
+* Charts (Pie/Bar) for category insights
+* Delete expense
+* Authentication for multi-user support
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **Frontend**: React (Create React App)
+* **Backend**: FastAPI (Python)
+* **Database**: SQLite (development) → PostgreSQL/MySQL (production)
+* **Charts (optional)**: Chart.js / Recharts
+* **HTTP Client**: Axios / Fetch API
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Getting Started
 
-### Analyzing the Bundle Size
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Node.js & npm installed
+* Python 3.9+ with pip
 
-### Making a Progressive Web App
+### Setup Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd frontend   # (your React app root)
+npm install   # install dependencies
+npm start     # run dev server (default: http://localhost:3000)
+```
 
-### Advanced Configuration
+### Setup Backend (FastAPI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## API Endpoints (Backend)
 
-### `npm run build` fails to minify
+* **POST /expenses** → Add a new expense
+* **GET /expenses?date=YYYY-MM-DD** → Get expenses for a date
+* **GET /expenses/summary** → Get total & category-wise breakdown
+* **PUT /expenses/{id}** → Update an expense
+* **DELETE /expenses/{id}** → Delete an expense (optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Example Usage
+
+**Add an expense**
+
+```bash
+curl -X POST http://localhost:8000/expenses \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 200, "category": "Food", "date": "2025-09-27"}'
+```
+
+**Get summary**
+
+```bash
+curl http://localhost:8000/expenses/summary
+```
+
+---
+
+## Environment Variables
+
+For **frontend** (`.env`):
+
+```
+REACT_APP_API_URL=http://localhost:8000
+```
+
+For **backend** (`.env`):
+
+```
+DATABASE_URL=sqlite:///./expenses.db
+API_PORT=8000
+```
+
+---
+
+## Deployment
+
+* **Frontend** → Deploy on Netlify / Vercel.
+* **Backend** → Deploy on AWS/GCP/Azure with Uvicorn + Gunicorn.
+* **Database** → Use PostgreSQL in production.
+
+---
+
+## Future Enhancements
+
+* Authentication (JWT)
+* Recurring expenses
+* Export CSV/Excel reports
+* Mobile-first responsive UI
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Contact
+
+For queries or contributions, open an issue or pull request. 🚀
