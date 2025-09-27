@@ -133,23 +133,6 @@ curl -X POST http://localhost:8000/expenses \
 curl http://localhost:8000/expenses/summary
 ```
 
----
-
-## Environment Variables
-
-For **frontend** (`.env`):
-
-```
-REACT_APP_API_URL=http://localhost:8000
-```
-
-For **backend** (`.env`):
-
-```
-DATABASE_URL=sqlite:///./expenses.db
-API_PORT=8000
-```
-
 ## Contact
 
 +91 83298 92836
