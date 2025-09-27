@@ -74,7 +74,7 @@ package.json
 
 * **Frontend**: React (Create React App)
 * **Backend**: FastAPI (Python)
-* **Database**: SQLite (development) → PostgreSQL/MySQL (production)
+* **Database**: MySQL 
 * **Charts (optional)**: Chart.js / Recharts
 * **HTTP Client**: Axios / Fetch API
 
@@ -150,31 +150,6 @@ DATABASE_URL=sqlite:///./expenses.db
 API_PORT=8000
 ```
 
----
-
-## Deployment
-
-* **Frontend** → Deploy on Netlify / Vercel.
-* **Backend** → Deploy on AWS/GCP/Azure with Uvicorn + Gunicorn.
-* **Database** → Use PostgreSQL in production.
-
----
-
-## Future Enhancements
-
-* Authentication (JWT)
-* Recurring expenses
-* Export CSV/Excel reports
-* Mobile-first responsive UI
-
----
-
-## License
-
-MIT License
-
----
-
 ## Contact
 
-For queries or contributions, open an issue or pull request. 🚀
++91 83298 92836
