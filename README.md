@@ -55,11 +55,11 @@ package.json
 
 ## Features
 
-✅ Add expense (amount, category, date)
-✅ Predefined & custom categories
-✅ View expenses by date
-✅ Summary with total + category breakdown
-✅ Update an expense
+1. Add expense (amount, category, date)
+2.  Predefined & custom categories
+3.  View expenses by date
+4.  Summary with total + category breakdown
+5.  Update an expense
 
 **Optional enhancements:**
 
